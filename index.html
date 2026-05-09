@@ -1587,7 +1587,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <div class="footer-copy">© 2025 RM Digital · rmdigital.net · Todos los derechos reservados.</div>
+      <div class="footer-copy">© 2026 RM Digital · rmdigital.net · Todos los derechos reservados. &nbsp;·&nbsp; <a href="privacidad.html" style="color:rgba(255,255,255,.45)">Privacidad</a> &nbsp;·&nbsp; <a href="cookies.html" style="color:rgba(255,255,255,.45)">Cookies</a> &nbsp;·&nbsp; <a href="disclaimer.html" style="color:rgba(255,255,255,.45)">Aviso Legal</a></div>
       <div class="footer-made">Hecho con <span>♥ + IA</span> en Guatemala</div>
     </div>
   </div>
@@ -1722,6 +1722,33 @@
     el.className = 'form-msg ' + type;
     el.style.display = 'block';
     el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+</script>
+
+<!-- ══ COOKIE BANNER ══ -->
+<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0f0f28;border-top:1px solid rgba(99,102,241,.3);padding:1rem 1.5rem;box-shadow:0 -4px 24px rgba(0,0,0,.4)">
+  <div style="max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap">
+    <div style="flex:1;min-width:260px;font-size:.84rem;color:#cbd5e1;line-height:1.6">
+      <span style="font-size:1.1rem;margin-right:.4rem">🍪</span>
+      Usamos cookies esenciales para el funcionamiento del sitio y analíticas anónimas para mejorar tu experiencia.
+      Al continuar navegando, aceptas nuestra
+      <a href="cookies.html" style="color:#a5b4fc;text-decoration:underline">Política de Cookies</a> y
+      <a href="privacidad.html" style="color:#a5b4fc;text-decoration:underline">Política de Privacidad</a>.
+    </div>
+    <div style="display:flex;gap:.75rem;flex-shrink:0;flex-wrap:wrap">
+      <button onclick="cookieConsent('essential')" style="padding:.55rem 1.25rem;border-radius:999px;border:1.5px solid rgba(255,255,255,.2);background:transparent;color:#94a3b8;font-size:.83rem;font-weight:600;cursor:pointer;font-family:inherit">Solo esenciales</button>
+      <button onclick="cookieConsent('all')" style="padding:.55rem 1.4rem;border-radius:999px;border:none;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:white;font-size:.83rem;font-weight:700;cursor:pointer;font-family:inherit">Aceptar todas</button>
+    </div>
+  </div>
+</div>
+<script>
+  (function() {
+    var consent = localStorage.getItem('rm_cookie_consent');
+    if (!consent) document.getElementById('cookieBanner').style.display = 'block';
+  })();
+  function cookieConsent(type) {
+    localStorage.setItem('rm_cookie_consent', type);
+    document.getElementById('cookieBanner').style.display = 'none';
   }
 </script>
 </body>
