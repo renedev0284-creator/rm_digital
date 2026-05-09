@@ -46,7 +46,7 @@
       --r-sm: 8px;
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 120px; }
 
     body {
       font-family: 'Inter', system-ui, sans-serif;
@@ -145,7 +145,7 @@
     /* ── Nav ── */
     .nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 40px; left: 0; right: 0;
       z-index: 1000;
       padding: 1.25rem 0;
       transition: all .3s;
@@ -201,7 +201,7 @@
       align-items: center;
       position: relative;
       overflow: hidden;
-      padding: 7rem 0 5rem;
+      padding: 8.5rem 0 5rem;
     }
     .hero-bg {
       position: absolute; inset: 0;
@@ -868,8 +868,9 @@
       padding: .6rem 1rem;
       font-size: .82rem;
       font-weight: 600;
-      position: relative;
-      z-index: 999;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1001;
     }
     .urgency-bar a { color: white; text-decoration: underline; }
   </style>
@@ -1679,6 +1680,7 @@
     msgEl.style.display = 'none';
 
     const data = {
+      token:    'rmdigital_local_2025',
       nombre:   nombre,
       correo:   document.getElementById('f-correo').value.trim(),
       telefono: document.getElementById('f-tel').value.trim(),
@@ -1689,7 +1691,7 @@
       ].filter(Boolean).join(' | '),
     };
 
-    fetch('submit.php', {
+    fetch('https://app.renemoya.com/api/leads_webhook.php', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
